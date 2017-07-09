@@ -23,7 +23,7 @@ public class DeckTest {
         assertEquals(52, deck.countDeck());
     }
 
-//    @Test
+//    @Test//note:to check the deck method is working.
 //    public void printOutDeck() {
 //        this.deck.printDeck(52);
 //    }

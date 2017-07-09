@@ -19,7 +19,6 @@ public class Deck {
 
     public Deck(int numberOfCardsInDeck, boolean shuffleDeck) {
         myDeck = new ArrayList<Card>();
-//        this.numberOfCards = numberOfCardsInDeck * 52;
 
         //note index picker
 

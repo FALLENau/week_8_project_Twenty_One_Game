@@ -17,11 +17,7 @@ public class Player {
 
     public void addCardToPlayerHand(Card card) {
         myHand.add(card);
-    }
-
-//    public void addCardToDealerHand(Card card) {
-//        dealersHand.add(card);
-//    }
+    }//note: takes card from dealer and adds it to hand.
 
     public int countPlayerHand() {
         return myHand.size();
