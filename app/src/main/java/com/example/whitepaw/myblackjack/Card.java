@@ -24,8 +24,9 @@ public class Card {
 
     public int getNumber() {
         return myNumber;
-    }
+    }//note: to get the maths to compare hands
 
+    @Override
     public String toString() {
 
         String numStr = "Error";

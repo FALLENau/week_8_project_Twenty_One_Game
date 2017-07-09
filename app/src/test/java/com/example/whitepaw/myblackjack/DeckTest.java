@@ -23,8 +23,13 @@ public class DeckTest {
         assertEquals(52, deck.countDeck());
     }
 
+//    @Test
+//    public void printOutDeck() {
+//        this.deck.printDeck(52);
+//    }
+
     @Test
-    public void printOutDeck() {
-        this.deck.printDeck(52);
+    public void deckCanGiveCards() {
+        assertNotNull(deck.dealNextCard());
     }
 }

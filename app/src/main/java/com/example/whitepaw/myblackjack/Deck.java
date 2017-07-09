@@ -15,8 +15,6 @@ public class Deck {
 
     public Deck() {
         this(1, true);
-//        this.myDeck = myDeck;
-
     }
 
     public Deck(int numberOfCardsInDeck, boolean shuffleDeck) {
