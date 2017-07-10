@@ -62,19 +62,24 @@ public class Game {
     }//note: only thing that needs to be left within the game.class for when everything to rule class.
 
     public void playTurn(Player player) {
-        if (askIfHit()) {
+        if (askIfHit(player)) {
             while (true) {
                 this.giveCardToPlayer(player, this.getCard());
                 if (checkForBust(player)) break;
-                if (!askIfHit()) break;
+                if (!askIfHit(player)) break;
             }
         }
     }//note: check if functional-------------------------------------------
 
-    public boolean askIfHit() {
+    public boolean askIfHit(Player player) {
+        boolean result = true;
 //       add check for dealer here
+        if (player.equals("dealer")) {
+            this.countValueOfHand(player);{
+            if (this.countValueOfHand(player) >= 5) return false;}
+        } else { return true;}
 //       does player bust (use break; in the while loop)
-        return true;
+        return result;
     }
 
     public boolean checkForBust(Player player) {
@@ -83,6 +88,14 @@ public class Game {
             result = true;
         return result;
     }//note: check if functional-------------------------------------------
+
+//    public Player isDealerAndHandValueIs(Player player) {
+//        Player person = ((player.getName() == "dealer") ? player : player.getName());
+////        if (player.equals("dealer"))
+////        {return this.countValueOfHand(player);}
+////        else
+//            return person;
+//    }
 
     public void setupGame() {
         for (Player player : players) {

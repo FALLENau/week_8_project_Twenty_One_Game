@@ -58,13 +58,18 @@ public class GameTest {
 
     @Test
     public void checkForBust() {
-//        newGame.setupGame();
-        newGame.giveCardToPlayer(player1, newGame.getCard());
-        newGame.giveCardToPlayer(player1, newGame.getCard());
-        newGame.giveCardToPlayer(player1, newGame.getCard());
-        assertEquals(true, newGame.checkForBust(player1));
+        newGame.playGame();
+//        newGame.giveCardToPlayer(dealer, newGame.getCard());
+//        newGame.giveCardToPlayer(player1, newGame.getCard());
+//        newGame.giveCardToPlayer(player1, newGame.getCard());
+//        newGame.giveCardToPlayer(player1, newGame.getCard());
+//        newGame.giveCardToPlayer(player1, newGame.getCard());
+        newGame.askIfHit(dealer);
+        assertEquals(false, newGame.checkForBust(dealer));
         System.out.println(newGame.countPlayerHand(player1));
+        System.out.println(newGame.countPlayerHand(dealer));
         System.out.println(newGame.countValueOfHand(player1));
+        System.out.println(newGame.countValueOfHand(dealer));
     }//note: works just fine
 
 //    @Test
@@ -81,6 +86,17 @@ public class GameTest {
 //        assertNotEquals(0, newGame.compareValueOfHands());
 //        System.out.println(newGame.compareValueOfHands());
 //    }note: complete don't worrie about it bro!
+
+//    @Test
+//    public void playGame() {
+//        newGame.playGame();
+//        System.out.println(newGame.countPlayerHand(player1));
+//        System.out.println(newGame.countPlayerHand(dealer));
+//        System.out.println(newGame.countValueOfHand(player1));
+//        System.out.println(newGame.countValueOfHand(dealer));
+//
+//
+//    }
 
 
 
