@@ -64,11 +64,11 @@ public class GameTest {
 //        newGame.giveCardToPlayer(player1, newGame.getCard());
 //        newGame.giveCardToPlayer(player1, newGame.getCard());
 //        newGame.giveCardToPlayer(player1, newGame.getCard());
+        System.out.println(newGame.countPlayerHand(player1));
+        System.out.println(newGame.countValueOfHand(player1));
         newGame.askIfHit(dealer);
         assertEquals(false, newGame.checkForBust(dealer));
-        System.out.println(newGame.countPlayerHand(player1));
         System.out.println(newGame.countPlayerHand(dealer));
-        System.out.println(newGame.countValueOfHand(player1));
         System.out.println(newGame.countValueOfHand(dealer));
     }//note: works just fine
 

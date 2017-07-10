@@ -74,13 +74,13 @@ public class Game {
     public boolean askIfHit(Player player) {
         boolean result = true;
 //       add check for dealer here
-        if (player.equals("dealer")) {
+        if (player.getName().equals("Dealer")) {
             this.countValueOfHand(player);{
-            if (this.countValueOfHand(player) >= 5) return false;}
+            if (this.countValueOfHand(player) >= 15) return false;}
         } else { return true;}
 //       does player bust (use break; in the while loop)
         return result;
-    }
+    }///something fishy with the dealer.handleMod at 16
 
     public boolean checkForBust(Player player) {
         boolean result = false;
