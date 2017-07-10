@@ -79,7 +79,7 @@ public class Game {
 
     public boolean checkForBust(Player player) {
         boolean result = false;
-        if (player.countPlayerHand() > 21)
+        if (this.countValueOfHand(player) > 21)
             result = true;
         return result;
     }//note: check if functional-------------------------------------------
