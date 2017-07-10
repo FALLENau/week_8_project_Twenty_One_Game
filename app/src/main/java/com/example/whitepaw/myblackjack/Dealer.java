@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class Dealer extends Player {
     private Deck deck;
 
-    public Dealer() {
-        super();
+    public Dealer(String name) {
+        super(name);
 //        deck = new Deck();
     }
 
@@ -18,31 +18,31 @@ public class Dealer extends Player {
         return deck.countDeck();
     }
 
-    public Card dealerCanGiveCard() {
-        Card card = deck.dealNextCard();
-        return card;
-    }
+//    public Card dealerCanGiveCard() {
+//        Card card = deck.dealNextCard();
+//        return card;
+//    }
 
-    public void addCardToDealerHand(Card card) {
-        myHand.add(card);
-    }
-    //note: Card myHand is inherited by player
+//    public void addCardToDealerHand(Card card) {
+//        myHand.add(card);
+//    }
+//    //note: Card myHand is inherited by player
 
-    public void giveCardToPlayer(Player playerHand) {
-        Card card = this.dealerCanGiveCard();
-        playerHand.addCardToPlayerHand(card);
-    }
+//    public void giveCardToPlayer(Player playerHand) {
+//        Card card = this.dealerCanGiveCard();
+//        playerHand.addCardToPlayerHand(card);
+//    }
 
-    public int countDealerHand() {
-        return myHand.size();
-    }//note: Card myHand is inherited by player
+//    public int countDealerHand() {
+//        return myHand.size();
+//    }//note: Card myHand is inherited by player
 
-    public int countValueOfHand() {
-        int i;
-        int sum = 0;
-        for(i = 0; i < myHand.size(); i++) {
-            sum += myHand.get(i).getNumber();
-        }
-        return sum;
-    }//note: Card myHand is inherited by player
+//    public int countValueOfHand() {
+//        int i;
+//        int sum = 0;
+//        for(i = 0; i < myHand.size(); i++) {
+//            sum += myHand.get(i).getNumber();
+//        }
+//        return sum;
+//    }//note: Card myHand is inherited by player
 }

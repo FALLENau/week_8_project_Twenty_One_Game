@@ -9,8 +9,10 @@ import java.util.ArrayList;
 public class Player {
     protected ArrayList<Card> myHand;
     private int handTotal;
+    private String name;
 
-    public Player() {
+    public Player(String playerName) {
+        this.name = playerName;
         myHand = new ArrayList<Card>();
     }
 
@@ -23,8 +25,16 @@ public class Player {
         return myHand.size();
     }
 
+    public String getName() {
+        return name;
+    }
+
     public ArrayList<Card> getMyHand() {
         return myHand;
+    }
+
+    public int getTotalOfHandOnPlayer(Player player) {
+        return player.myHand.size();
     }
 
     //    public int countHand() {

@@ -19,17 +19,7 @@ public class RulesTest {
     @Before
     public void before() {
         deck = new Deck();
-        dealer = new Dealer();
-        player1 = new Player();
-    }
-
-    @Test
-    public void handsHaveHierarchy() {
-//        assertEquals();
-    }
-
-    @Test
-    public void aceCanChangeValue() {
-//        assertEquals(1, );
+        dealer = new Dealer("Dealer");
+        player1 = new Player("Reece");
     }
 }
