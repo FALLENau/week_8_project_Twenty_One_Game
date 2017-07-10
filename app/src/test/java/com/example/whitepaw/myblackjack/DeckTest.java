@@ -23,10 +23,10 @@ public class DeckTest {
         assertEquals(52, deck.countDeck());
     }
 
-//    @Test//note:to check the deck method is working.
-//    public void printOutDeck() {
-//        this.deck.printDeck(52);
-//    }
+    @Test//note:to check the deck method is working, and it did.
+    public void printOutDeck() {
+        this.deck.printDeck(52);
+    }
 
     @Test
     public void deckCanGiveCards() {

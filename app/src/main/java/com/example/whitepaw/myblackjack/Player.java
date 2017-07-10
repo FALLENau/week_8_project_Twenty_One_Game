@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 
 public class Player {
-    private ArrayList<Card> myHand;
+    protected ArrayList<Card> myHand;
     private int handTotal;
 
     public Player() {
@@ -23,4 +23,11 @@ public class Player {
         return myHand.size();
     }
 
+    public ArrayList<Card> getMyHand() {
+        return myHand;
+    }
+
+    //    public int countHand() {
+//        return myHand.size();
+//    }//note: Card myHand is inherited by player for andriod dysplay later on.
 }
