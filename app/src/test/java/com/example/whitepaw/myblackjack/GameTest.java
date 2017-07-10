@@ -56,6 +56,16 @@ public class GameTest {
         assertNotNull(newGame.compareValueOfHands());
     }
 
+    @Test
+    public void checkForBust() {
+        newGame.setupGame();
+        newGame.giveCardToPlayer(player1, newGame.getCard());
+        newGame.giveCardToPlayer(player1, newGame.getCard());
+        newGame.giveCardToPlayer(player1, newGame.getCard());
+        assertEquals(true, newGame.checkForBust(player1));
+        System.out.println(newGame.checkForBust(player1));
+    }
+
 //    @Test
 //    public void playTwoRounds() {
 //        newGame.giveCardToPlayer(player1, newGame.getCard());

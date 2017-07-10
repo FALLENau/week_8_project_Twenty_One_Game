@@ -33,9 +33,9 @@ public class Player {
         return myHand;
     }
 
-    public int getTotalOfHandOnPlayer(Player player) {
-        return player.myHand.size();
-    }
+//    public int getTotalOfHandOnPlayer(Player player) {
+//        return player.myHand.size();
+//    }
 
     //    public int countHand() {
 //        return myHand.size();

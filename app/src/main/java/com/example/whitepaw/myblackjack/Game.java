@@ -41,7 +41,6 @@ public class Game {
             if (sum < 11 && num == 1) {
                 num = 11;
             }
-
             sum += num;
         }
         return sum;
@@ -70,7 +69,7 @@ public class Game {
                 if (!askIfHit()) break;
             }
         }
-    }
+    }//note: check if functional-------------------------------------------
 
     public boolean askIfHit() {
 //       add check for dealer here
@@ -80,18 +79,10 @@ public class Game {
 
     public boolean checkForBust(Player player) {
         boolean result = false;
-        if (player.getTotalOfHandOnPlayer() > 21) ;
-        }
+        if (player.countPlayerHand() > 21)
+            result = true;
         return result;
-//        public boolean bust(Hand whobust)
-//        {
-//            boolean result = false;
-//
-//            if(whobust.getHandValue() > 21)
-//                result = true;
-//
-//            return result;
-    }
+    }//note: check if functional-------------------------------------------
 
     public void setupGame() {
         for (Player player : players) {
@@ -103,7 +94,6 @@ public class Game {
         //deal 2 cards for each player and dealer
         //check each player if they want to hit or not, and check if bust(in hti method)
         // while (wants to hit){ give card which will check for bust }
-
     }
 
     public String compareValueOfHands() {
