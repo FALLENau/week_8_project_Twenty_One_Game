@@ -70,8 +70,16 @@ public class GameTest {
         assertEquals(false, newGame.checkForBust(dealer));
         System.out.println(newGame.countPlayerHand(dealer));
         System.out.println(newGame.countScore(dealer));
+        System.out.println(newGame.compareValueOfHands());
     }//note: works just fine
 
+    @Test
+    public void whatCardsDoesPlayer1Have() {
+        newGame.playGame();
+        System.out.println(newGame.countPlayerHand(player1));
+        System.out.println(newGame.countScore(player1));
+        System.out.println(player1.countHand());
+    }
 //    @Test
 //    public void playTwoRounds() {
 //        newGame.giveCardToPlayer(player1, newGame.getCard());

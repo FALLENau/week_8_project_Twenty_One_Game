@@ -39,7 +39,7 @@ public class Game {
         for (i = 0; i < player.getMyHand().size(); i++) {
             int num = player.getMyHand().get(i).getNumber();
 
-            if (num > 10) {num = 10;}
+            if (num > 10) {num = 10;}//note: this adjust face for blackjack to 10;
 
             if (sum < 11 && num == 1) {
                 num = 11;
@@ -80,10 +80,10 @@ public class Game {
         if (player.getName().equals("Dealer")) {
             this.countScore(player);{
             if (this.countScore(player) >= 15) return false;}
-        } else { return playerInput;}
+        } else { return true/*playerInput*/;}
 //       does player bust (use break; in the while loop)
         return result;
-    }///something fishy with the dealer.handleMod at 16
+    }//note: refactor to be "askIfDealerWantsToHit"
 
     public boolean checkForBust(Player player) {
         boolean result = false;

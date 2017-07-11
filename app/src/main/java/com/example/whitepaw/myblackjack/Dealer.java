@@ -14,9 +14,9 @@ public class Dealer extends Player {
 //        deck = new Deck();
     }
 
-    public int countDeck() {
-        return deck.countDeck();
-    }
+//    public int countDeck() {
+//        return deck.countDeck();
+//    }
 
 //    public Card dealerCanGiveCard() {
 //        Card card = deck.dealNextCard();

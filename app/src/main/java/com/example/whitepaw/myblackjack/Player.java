@@ -33,11 +33,21 @@ public class Player {
         return myHand;
     }
 
+
 //    public int getTotalOfHandOnPlayer(Player player) {
 //        return player.myHand.size();
 //    }
 
-    //    public int countHand() {
-//        return myHand.size();
-//    }//note: Card myHand is inherited by player for andriod dysplay later on.
+    public  String getCardsOfPlayerHand() {
+        String cardNames = "";
+        for (Card cardName : this.myHand ) {
+            cardNames += cardName.toString();
+        }
+        return cardNames;
+    }
+
+
+    public int countHand() {
+        return myHand.size();
+    }//note: Card myHand is inherited by player for andriod dysplay later on.
 }

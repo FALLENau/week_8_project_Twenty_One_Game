@@ -6,45 +6,62 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class StartPageActivity extends AppCompatActivity {
     Button hitButton;
     Button holdButton;
     TextView resultText;
+    TextView handText;
     boolean playerInput;
-    Game game;
+    Deck deck;
+    Player player1;
+    ArrayList<Player> appGame;
+    Game newGame;
+    Player dealer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_page);
-        game = new Game();
-        game.playGame();
+        deck = new Deck();
+        dealer = new Dealer("Dealer");
+        player1 = new Player("Reece");
+        appGame = new ArrayList<Player>();
+        appGame.add(player1);
+        appGame.add(dealer);
+
+        newGame = new Game(appGame, deck);
+        newGame.playGame();
+
+        String currentPlayer = player1.getName();
+
         hitButton = (Button) findViewById(R.id.hit_button);
         holdButton = (Button) findViewById(R.id.hold_button);
         resultText = (TextView) findViewById(R.id.result_text);
         handText = (TextView) findViewById(R.id.hand_text);
     }
 
-    public boolean onClickHitButton(View button) {
+    public void onClickHitButton(View button) {
         boolean playerInput = true;
-        game = new Game(game.askIfHit(Player player));
-        String result = game.countPlayerHand(Player who?);
-        String hand = game.countPlayerHand(Player who?);
-
-//        Log.d(getClass().toString(), result);
+        player1.addCardToPlayerHand(newGame.getCard());
+        String hand = player1.getCardsOfPlayerHand();
+//        Log.d(getClass().toString(), score);
         handText.setText((hand));
-        resultText.setText((result));
+
+
     }
 
-    public boolean onClickHoldButton(View button) {
-        boolean playerInput = false;
-        game = new Game(game.askIfHit(playerInput));
-        String result = game.countPlayerHand(Player player);
-        String hand = game.countPlayerHand(Player player);
-
-//        Log.d(getClass().toString(), result);
-        handText.setText((hand));
-        resultText.setText((result));
-    }
+//    public boolean onClickHoldButton(View button) {
+//        boolean playerInput = false;
+//        newGame.playTurn(player1);
+//        String result = newGame.countScore(player1);
+//        int score = newGame.countScore(player1);
+//        String hand = newGame.countPlayerHand(player1);
+//
+////        Log.d(getClass().toString(), result);
+//        handText.setText((hand));
+//        resultText.setText((result));
+//    }
 
 }
