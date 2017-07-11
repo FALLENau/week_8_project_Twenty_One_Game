@@ -27,15 +27,12 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
-
-//        answerText = (TextView) findViewById(R.id.answer_text);
+        
         TextView nameText = (TextView) findViewById(R.id.name_game_text);
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-//        String answer = extras.getString("name");
-        String name = extras.getString("name", " No Name ");
+        String name = extras.getString("name", " Player ");
         Log.e("Ahhh", "value of name is: " + name);
         nameText.setText(name);
 //        answerText.setText(answer);
