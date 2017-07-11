@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 
 public class Game {
+    Boolean playerInput;
     ArrayList<Player> players;
     Deck deck;
 
@@ -79,7 +80,7 @@ public class Game {
         if (player.getName().equals("Dealer")) {
             this.countScore(player);{
             if (this.countScore(player) >= 15) return false;}
-        } else { return true;}
+        } else { return playerInput;}
 //       does player bust (use break; in the while loop)
         return result;
     }///something fishy with the dealer.handleMod at 16
