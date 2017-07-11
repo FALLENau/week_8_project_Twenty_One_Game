@@ -17,33 +17,33 @@ public class StartPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_page);
+        game = new Game();
         game.playGame();
-        hitButton = (Button) findViewById(R.id.rock_button);
-        holdButton = (Button) findViewById(R.id.paper_button);
+        hitButton = (Button) findViewById(R.id.hit_button);
+        holdButton = (Button) findViewById(R.id.hold_button);
         resultText = (TextView) findViewById(R.id.result_text);
+        handText = (TextView) findViewById(R.id.hand_text);
     }
 
-    public void onClickHitButton(View button) {
+    public boolean onClickHitButton(View button) {
         boolean playerInput = true;
         game = new Game(game.askIfHit(Player player));
-        //String userInput = game.getPlayerInput();
-//        String computerChoice = game.generateComputersChoice();
-        String result = game.askIfHit(playerInput);
+        String result = game.countPlayerHand(Player who?);
+        String hand = game.countPlayerHand(Player who?);
 
 //        Log.d(getClass().toString(), result);
-        // Intent intent = new Intent(this, GameActivity.class);
-        // intent.putExtra("choice", userInput);
-        // startActivity(intent);
+        handText.setText((hand));
         resultText.setText((result));
-    }//Note: all commented out info is the first draft(which was wrong)
+    }
 
-    public void onClickHoldButton(View button) {
-        boolean buttonInput = false;
-        game = new Game(playerInput);
-//        String computerChoice = game.generateComputersChoice();
-        String result = game.gameLogic(computerChoice);
+    public boolean onClickHoldButton(View button) {
+        boolean playerInput = false;
+        game = new Game(game.askIfHit(playerInput));
+        String result = game.countPlayerHand(Player player);
+        String hand = game.countPlayerHand(Player player);
 
 //        Log.d(getClass().toString(), result);
+        handText.setText((hand));
         resultText.setText((result));
     }
 
