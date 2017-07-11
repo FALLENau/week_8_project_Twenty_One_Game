@@ -13,6 +13,7 @@ public class StartPageActivity extends AppCompatActivity {
     Button holdButton;
     TextView resultText;
     TextView handText;
+    TextView handScoreText;
     boolean playerInput;
     Deck deck;
     Player player1;
@@ -36,24 +37,32 @@ public class StartPageActivity extends AppCompatActivity {
 
 //        String currentPlayer = player1.getName();
         String hand = player1.getCardsOfPlayerHand();
+        int handScore = player1.countHand();
+        String handValue = Integer.toString(handScore);
 
         hitButton = (Button) findViewById(R.id.hit_button);
         holdButton = (Button) findViewById(R.id.hold_button);
         resultText = (TextView) findViewById(R.id.result_text);
         handText = (TextView) findViewById(R.id.hand_text);
+        handScoreText = (TextView) findViewById(R.id.hand_value);
 
         handText.setText((hand));
+        handScoreText.setText((handValue));
     }
 
     public void onClickHitButton(View button) {
         player1.addCardToPlayerHand(newGame.getCard());
         String hand = player1.getCardsOfPlayerHand();
 
+        int handScore = player1.countHand();
+        String handValue = Integer.toString(handScore);
+
         if (newGame.checkForBust(player1)) {
             handText.setText(getString(R.string.app_bust));
         } else {
         handText.setText((hand));
         }
+        handScoreText.setText((handValue));
     }
 
     public void onClickHoldButton(View button) {
