@@ -46,7 +46,7 @@ public class GameTest {
     @Test
     public void sumOfHand() {
         newGame.giveCardToPlayer(player1, newGame.getCard());
-        assertNotNull(newGame.countValueOfHand(player1));
+        assertNotNull(newGame.countScore(player1));
     }
 
     @Test
@@ -65,11 +65,11 @@ public class GameTest {
 //        newGame.giveCardToPlayer(player1, newGame.getCard());
 //        newGame.giveCardToPlayer(player1, newGame.getCard());
         System.out.println(newGame.countPlayerHand(player1));
-        System.out.println(newGame.countValueOfHand(player1));
+        System.out.println(newGame.countScore(player1));
         newGame.askIfHit(dealer);
         assertEquals(false, newGame.checkForBust(dealer));
         System.out.println(newGame.countPlayerHand(dealer));
-        System.out.println(newGame.countValueOfHand(dealer));
+        System.out.println(newGame.countScore(dealer));
     }//note: works just fine
 
 //    @Test
@@ -92,8 +92,8 @@ public class GameTest {
 //        newGame.playGame();
 //        System.out.println(newGame.countPlayerHand(player1));
 //        System.out.println(newGame.countPlayerHand(dealer));
-//        System.out.println(newGame.countValueOfHand(player1));
-//        System.out.println(newGame.countValueOfHand(dealer));
+//        System.out.println(newGame.countScore(player1));
+//        System.out.println(newGame.countScore(dealer));
 //
 //
 //    }

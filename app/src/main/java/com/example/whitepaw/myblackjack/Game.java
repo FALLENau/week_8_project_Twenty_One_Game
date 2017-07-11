@@ -32,11 +32,13 @@ public class Game {
         return playerHand.getMyHand().size();
     }//note: Card myHand is inherited by player
 
-    public int countValueOfHand(Player player) {
+    public int countScore(Player player) {
         int i;
         int sum = 0;
         for (i = 0; i < player.getMyHand().size(); i++) {
             int num = player.getMyHand().get(i).getNumber();
+
+            if (num > 10) {num = 10;}
 
             if (sum < 11 && num == 1) {
                 num = 11;
@@ -75,8 +77,8 @@ public class Game {
         boolean result = true;
 //       add check for dealer here
         if (player.getName().equals("Dealer")) {
-            this.countValueOfHand(player);{
-            if (this.countValueOfHand(player) >= 15) return false;}
+            this.countScore(player);{
+            if (this.countScore(player) >= 15) return false;}
         } else { return true;}
 //       does player bust (use break; in the while loop)
         return result;
@@ -84,18 +86,14 @@ public class Game {
 
     public boolean checkForBust(Player player) {
         boolean result = false;
-        if (this.countValueOfHand(player) > 21)
+        if (this.countScore(player) > 21)
             result = true;
         return result;
     }//note: check if functional-------------------------------------------
 
-//    public Player isDealerAndHandValueIs(Player player) {
-//        Player person = ((player.getName() == "dealer") ? player : player.getName());
-////        if (player.equals("dealer"))
-////        {return this.countValueOfHand(player);}
-////        else
-//            return person;
-//    }
+//    public int FaceCardRule(Player player) {
+//
+//    }//note: this is to make my face cards equal to the correct amount in blackjack.
 
     public void setupGame() {
         for (Player player : players) {
@@ -113,7 +111,7 @@ public class Game {
         Player maxPlayer = this.players.get(0);
 
         for(Player player : this.players) {
-            if(countValueOfHand(player) > countValueOfHand(maxPlayer)/*&&player is bust*/) {
+            if(countScore(player) > countScore(maxPlayer)/*&&player is bust*/) {
                 maxPlayer = player;
             }
         }

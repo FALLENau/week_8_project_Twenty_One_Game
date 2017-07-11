@@ -49,6 +49,6 @@
 //    @Test
 //    public void sumOfHand() {
 //        dealer.addCardToDealerHand(dealer.dealerCanGiveCard());
-//        assertNotNull(dealer.countValueOfHand());
+//        assertNotNull(dealer.countScore());
 //    }
 //}

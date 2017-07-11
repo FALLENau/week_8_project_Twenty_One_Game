@@ -37,7 +37,7 @@ public class Dealer extends Player {
 //        return myHand.size();
 //    }//note: Card myHand is inherited by player
 
-//    public int countValueOfHand() {
+//    public int countScore() {
 //        int i;
 //        int sum = 0;
 //        for(i = 0; i < myHand.size(); i++) {
