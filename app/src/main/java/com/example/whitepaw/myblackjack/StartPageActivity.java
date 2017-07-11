@@ -61,18 +61,17 @@ public class StartPageActivity extends AppCompatActivity {
         if (newGame.checkForBust(player1)) {
             handText.setText(getString(R.string.app_bust));
             restartButton.setVisibility(View.VISIBLE);
+            hitButton.setVisibility(View.INVISIBLE);
         } else {
         handText.setText((hand));
         }
         handScoreText.setText((handValue));
     }
 
-    public void onReset(View button) {
-        finish();
-    }
+
 
     public void onClickHoldButton(View button) {
-        newGame.playTurn(player1);
+        newGame.playTurn(dealer);
         String result = newGame.compareValueOfHands();
 //        int score = newGame.countScore(player1);
         String hand = player1.getCardsOfPlayerHand();
@@ -82,6 +81,10 @@ public class StartPageActivity extends AppCompatActivity {
         resultText.setText((result));
 
         restartButton.setVisibility(View.VISIBLE);
+        hitButton.setVisibility(View.INVISIBLE);
     }//note: hash out till functional
 
+    public void onReset(View button) {
+        finish();
+    }
 }
