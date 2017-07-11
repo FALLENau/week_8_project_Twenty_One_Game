@@ -3,6 +3,7 @@ package com.example.whitepaw.myblackjack;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -29,12 +30,13 @@ public class GameActivity extends AppCompatActivity {
 
 
 //        answerText = (TextView) findViewById(R.id.answer_text);
-        TextView nameText = (TextView) findViewById(R.id.name_text);
+        TextView nameText = (TextView) findViewById(R.id.name_game_text);
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
 //        String answer = extras.getString("name");
-        String name = extras.getString("name");
+        String name = extras.getString("name", " No Name ");
+        Log.e("Ahhh", "value of name is: " + name);
         nameText.setText(name);
 //        answerText.setText(answer);
 
