@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyBlackJack</string>
+    <string name="app_bust">Your Bust FOOL!</string>
 </resources>

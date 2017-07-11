@@ -34,19 +34,26 @@ public class StartPageActivity extends AppCompatActivity {
         newGame = new Game(appGame, deck);
         newGame.playGame();
 
-        String currentPlayer = player1.getName();
+//        String currentPlayer = player1.getName();
+        String hand = player1.getCardsOfPlayerHand();
 
         hitButton = (Button) findViewById(R.id.hit_button);
         holdButton = (Button) findViewById(R.id.hold_button);
         resultText = (TextView) findViewById(R.id.result_text);
         handText = (TextView) findViewById(R.id.hand_text);
+
+        handText.setText((hand));
     }
 
     public void onClickHitButton(View button) {
         player1.addCardToPlayerHand(newGame.getCard());
         String hand = player1.getCardsOfPlayerHand();
-//        Log.d(getClass().toString(), score);
+
+        if (newGame.checkForBust(player1)) {
+            handText.setText(getString(R.string.app_bust));
+        } else {
         handText.setText((hand));
+        }
     }
 
     public void onClickHoldButton(View button) {
