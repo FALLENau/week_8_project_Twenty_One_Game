@@ -1,14 +1,19 @@
 package com.example.whitepaw.myblackjack;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class StartPageActivity extends AppCompatActivity {
+    TextView nameText;
+    Button startButton;
 //    Button hitButton;
 //    Button holdButton;
 //    TextView resultText;
@@ -25,6 +30,22 @@ public class StartPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_page);
+
+        nameText = (EditText) findViewById(R.id.name_text);
+        startButton = (Button) findViewById(R.id.start_button);
+    }
+
+    public void onStartButtonClicked(View Button) {
+        /*answers = new Answers();
+        String question = nameText.getText().toString();
+        Log.d(getClass().toString(), "onStartButtonClicked was called");
+        Log.d(getClass().toString(), "A name was asked for '" + question + "'");
+        String answer = answers.getAnswer();*/
+
+        Intent intent = new Intent(this, GameActivity.class);
+        intent.putExtra("name", nameText.getText());
+        startActivity(intent);
+    }
 
 
 //        deck = new Deck();
@@ -84,4 +105,4 @@ public class StartPageActivity extends AppCompatActivity {
 //    public void onReset(View button) {
 //        finish();
 //    }
-}
+

@@ -1,5 +1,6 @@
 package com.example.whitepaw.myblackjack;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,9 +28,19 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
 
+//        answerText = (TextView) findViewById(R.id.answer_text);
+        TextView nameText = (TextView) findViewById(R.id.name_text);
+
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+//        String answer = extras.getString("name");
+        String name = extras.getString("name");
+        nameText.setText(name);
+//        answerText.setText(answer);
+
         deck = new Deck();
         dealer = new Dealer("Dealer");
-        player1 = new Player("Reece");
+        player1 = new Player(name);
         appGame = new ArrayList<Player>();
         appGame.add(player1);
         appGame.add(dealer);
@@ -83,6 +94,5 @@ public class GameActivity extends AppCompatActivity {
 
     public void onReset(View button) {
         finish();
-    }
     }
 }
