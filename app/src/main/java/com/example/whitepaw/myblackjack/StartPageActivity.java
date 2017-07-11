@@ -43,25 +43,21 @@ public class StartPageActivity extends AppCompatActivity {
     }
 
     public void onClickHitButton(View button) {
-        boolean playerInput = true;
         player1.addCardToPlayerHand(newGame.getCard());
         String hand = player1.getCardsOfPlayerHand();
 //        Log.d(getClass().toString(), score);
         handText.setText((hand));
-
-
     }
 
-//    public boolean onClickHoldButton(View button) {
-//        boolean playerInput = false;
-//        newGame.playTurn(player1);
-//        String result = newGame.countScore(player1);
+    public void onClickHoldButton(View button) {
+        newGame.playTurn(player1);
+        String result = newGame.compareValueOfHands();
 //        int score = newGame.countScore(player1);
-//        String hand = newGame.countPlayerHand(player1);
-//
-////        Log.d(getClass().toString(), result);
-//        handText.setText((hand));
-//        resultText.setText((result));
-//    }
+        String hand = player1.getCardsOfPlayerHand();
+
+//        Log.d(getClass().toString(), result);
+        handText.setText((hand));
+        resultText.setText((result));
+    }//note: hash out till functional
 
 }
