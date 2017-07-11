@@ -27,15 +27,11 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        
-        TextView nameText = (TextView) findViewById(R.id.name_game_text);
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         String name = extras.getString("name", " Player ");
         Log.e("Ahhh", "value of name is: " + name);
-        nameText.setText(name);
-//        answerText.setText(answer);
 
         deck = new Deck();
         dealer = new Dealer("Dealer");
@@ -54,10 +50,12 @@ public class GameActivity extends AppCompatActivity {
         hitButton = (Button) findViewById(R.id.hit_button);
         holdButton = (Button) findViewById(R.id.hold_button);
         resultText = (TextView) findViewById(R.id.result_text);
+        restartButton = (Button) findViewById(R.id.restart);
         handText = (TextView) findViewById(R.id.hand_text);
         handScoreText = (TextView) findViewById(R.id.hand_value);
-        restartButton = (Button) findViewById(R.id.restart);
+        TextView nameText = (TextView) findViewById(R.id.name_game_text);
 
+        nameText.setText(name);
         handText.setText((hand));
         handScoreText.setText((handValue));
     }

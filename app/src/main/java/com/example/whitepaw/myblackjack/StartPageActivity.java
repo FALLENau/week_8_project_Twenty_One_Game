@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class StartPageActivity extends AppCompatActivity {
-    TextView nameText;
+    EditText nameText;
     Button startButton;
 
     @Override
