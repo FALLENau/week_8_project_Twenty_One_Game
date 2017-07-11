@@ -58,9 +58,9 @@ public class Game {
 
     public void playGame() {
         setupGame();
-        for (Player player : players) {
-            playTurn(player);
-        }
+//        for (Player player : players) {
+//            playTurn(player);
+//        }
         compareValueOfHands();
     }//note: only thing that needs to be left within the game.class for when everything to rule class.
 

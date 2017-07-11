@@ -14,7 +14,7 @@ public class StartPageActivity extends AppCompatActivity {
     TextView resultText;
     TextView handText;
     TextView handScoreText;
-    boolean playerInput;
+    Button restartButton;
     Deck deck;
     Player player1;
     ArrayList<Player> appGame;
@@ -37,7 +37,7 @@ public class StartPageActivity extends AppCompatActivity {
 
 //        String currentPlayer = player1.getName();
         String hand = player1.getCardsOfPlayerHand();
-        int handScore = player1.countHand();
+        int handScore = newGame.countScore(player1);
         String handValue = Integer.toString(handScore);
 
         hitButton = (Button) findViewById(R.id.hit_button);
@@ -45,6 +45,7 @@ public class StartPageActivity extends AppCompatActivity {
         resultText = (TextView) findViewById(R.id.result_text);
         handText = (TextView) findViewById(R.id.hand_text);
         handScoreText = (TextView) findViewById(R.id.hand_value);
+        restartButton = (Button) findViewById(R.id.restart);
 
         handText.setText((hand));
         handScoreText.setText((handValue));
@@ -54,15 +55,20 @@ public class StartPageActivity extends AppCompatActivity {
         player1.addCardToPlayerHand(newGame.getCard());
         String hand = player1.getCardsOfPlayerHand();
 
-        int handScore = player1.countHand();
+        int handScore = newGame.countScore(player1);
         String handValue = Integer.toString(handScore);
 
         if (newGame.checkForBust(player1)) {
             handText.setText(getString(R.string.app_bust));
+            restartButton.setVisibility(View.VISIBLE);
         } else {
         handText.setText((hand));
         }
         handScoreText.setText((handValue));
+    }
+
+    public void onReset(View button) {
+        finish();
     }
 
     public void onClickHoldButton(View button) {
@@ -74,6 +80,8 @@ public class StartPageActivity extends AppCompatActivity {
 //        Log.d(getClass().toString(), result);
         handText.setText((hand));
         resultText.setText((result));
+
+        restartButton.setVisibility(View.VISIBLE);
     }//note: hash out till functional
 
 }
