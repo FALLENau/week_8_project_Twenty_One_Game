@@ -71,6 +71,7 @@ public class GameActivity extends AppCompatActivity {
             handText.setText(getString(R.string.app_bust));
             restartButton.setVisibility(View.VISIBLE);
             hitButton.setVisibility(View.INVISIBLE);
+            holdButton.setVisibility(View.INVISIBLE);
         } else {
             handText.setText((hand));
         }
@@ -84,7 +85,7 @@ public class GameActivity extends AppCompatActivity {
 
         handText.setText((hand));
         resultText.setText((result));
-
+        hitButton.setVisibility(View.INVISIBLE);
         restartButton.setVisibility(View.VISIBLE);
         holdButton.setVisibility(View.INVISIBLE);
     }
