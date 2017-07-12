@@ -1,24 +1,24 @@
 package com.example.whitepaw.myblackjack;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 public class GameActivity extends AppCompatActivity {
     Button hitButton;
     Button holdButton;
+    Button restartButton;
     TextView resultText;
     TextView handText;
     TextView handScoreText;
     TextView dealerHandText;
     TextView dealerHandScoreText;
-    Button restartButton;
     Deck deck;
     Player player1;
     Player dealer;
@@ -35,23 +35,32 @@ public class GameActivity extends AppCompatActivity {
         String name = extras.getString("name", "Player");
         Log.e("Ahhh", "value of name is: " + name);
 
+//        final MediaPlayer fail = MediaPlayer.create(this, R.raw.SuperMarioDeathSound);
+//
+//        superMarioFailPlay = (Button) this.findViewById(R.id.fail_sound);
+//
+//        superMarioFailPlay.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                fail.start();
+//            }
+//        });
+
         deck = new Deck();
         dealer = new Dealer("Dealer");
         player1 = new Player(name);
         appGame = new ArrayList<Player>();
         appGame.add(player1);
         appGame.add(dealer);
-//        String dealerHand;
         newGame = new Game(appGame, deck);
         newGame.playGame();
-        String playerblackjack = newGame.blackJack();
+        String playerBlackjack = newGame.blackJack();
 
         hitButton = (Button) findViewById(R.id.hit_button);
         holdButton = (Button) findViewById(R.id.hold_button);
         restartButton = (Button) findViewById(R.id.restart);
         resultText = (TextView) findViewById(R.id.result_text);
 
-        TextView nameText = (TextView) findViewById(R.id.name_game_text);
         handText = (TextView) findViewById(R.id.hand_text);
         handScoreText = (TextView) findViewById(R.id.hand_value);
 
@@ -59,25 +68,11 @@ public class GameActivity extends AppCompatActivity {
         dealerHandScoreText = (TextView) findViewById(R.id.dealer_hand_value);
 
 
-        if(playerblackjack == null) {
+        if(playerBlackjack == null) {
             createData();
-//            String hand = player1.getCardsOfPlayerHand();
-//            int handScore = newGame.countScore(player1);
-//            String handValue = Integer.toString(handScore);
-//
-//            String dealerHand = dealer.getCardsOfPlayerHand();
-//            int dealerHandScore = newGame.countScore(dealer);
-//            String dealerHandValue = Integer.toString(dealerHandScore);
-//
-//            nameText.setText(name);
-//            handText.setText((hand));
-//            handScoreText.setText((handValue));
-//
-//            dealerHandText.setText((dealerHand));
-//            dealerHandScoreText.setText((dealerHandValue));
         } else {
-            resultText.setText(playerblackjack);
-
+            createData();
+            resultText.setText(playerBlackjack);
             endGame();
         }
     }
@@ -94,7 +89,6 @@ public class GameActivity extends AppCompatActivity {
         int dealerHandScore = newGame.countScore(dealer);
         String dealerHandValue = Integer.toString(dealerHandScore);
 
-        nameText.setText(player1.getName());
         handText.setText((hand));
         handScoreText.setText((handValue));
 
@@ -107,6 +101,7 @@ public class GameActivity extends AppCompatActivity {
         hitButton.setVisibility(View.INVISIBLE);
         holdButton.setVisibility(View.INVISIBLE);
     }
+
 
     public void onClickHitButton(View button) {
         player1.addCardToPlayerHand(newGame.getCard());
@@ -130,17 +125,7 @@ public class GameActivity extends AppCompatActivity {
         String result = newGame.compareValueOfHands();
         resultText.setText((result));
         createData();
-//        String dealerHand = dealer.getCardsOfPlayerHand();
-//        int dealerHandScore = newGame.countScore(dealer);
-//        String dealerHandValue = Integer.toString(dealerHandScore);
-//
-//        dealerHandText.setText((dealerHand));
-//        dealerHandScoreText.setText((dealerHandValue));
-
         endGame();
-//        hitButton.setVisibility(View.INVISIBLE);
-//        restartButton.setVisibility(View.VISIBLE);
-//        holdButton.setVisibility(View.INVISIBLE);
     }
 
     public void onReset(View button) {

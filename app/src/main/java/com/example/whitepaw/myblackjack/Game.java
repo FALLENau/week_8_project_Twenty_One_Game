@@ -99,12 +99,12 @@ public class Game {
 
     public String blackJack() {
 
-        Player blackJackPlayer = null;
+//        Player blackJackPlayer = null;
         int blackJack = 21;
 
         for (Player player : this.players) {
             if (countScore(player) == blackJack) {
-                return player.getName() + " BlackJack! you win wins";
+                return player.getName() + "\n has BlackJack! you wins";
             }
         }
         return null;
