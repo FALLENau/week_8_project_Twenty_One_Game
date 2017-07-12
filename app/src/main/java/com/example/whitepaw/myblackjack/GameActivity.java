@@ -16,12 +16,14 @@ public class GameActivity extends AppCompatActivity {
     TextView resultText;
     TextView handText;
     TextView handScoreText;
+    TextView dealerHandScoreText;
     Button restartButton;
     Deck deck;
     Player player1;
     ArrayList<Player> appGame;
     Game newGame;
     Player dealer;
+    String dealerHand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +46,7 @@ public class GameActivity extends AppCompatActivity {
         newGame.playGame();
 
         String hand = player1.getCardsOfPlayerHand();
-        int handScore = newGame.countScore(player1);
-        String handValue = Integer.toString(handScore);
+        dealerHand = dealer.getCardsOfPlayerHand();
 
         hitButton = (Button) findViewById(R.id.hit_button);
         holdButton = (Button) findViewById(R.id.hold_button);
@@ -53,11 +54,11 @@ public class GameActivity extends AppCompatActivity {
         restartButton = (Button) findViewById(R.id.restart);
         handText = (TextView) findViewById(R.id.hand_text);
         handScoreText = (TextView) findViewById(R.id.hand_value);
+        dealerHandScoreText = (TextView) findViewById(R.id.dealer_hand_value);
         TextView nameText = (TextView) findViewById(R.id.name_game_text);
 
         nameText.setText(name);
         handText.setText((hand));
-        handScoreText.setText((handValue));
     }
 
     public void onClickHitButton(View button) {
@@ -72,6 +73,8 @@ public class GameActivity extends AppCompatActivity {
             restartButton.setVisibility(View.VISIBLE);
             hitButton.setVisibility(View.INVISIBLE);
             holdButton.setVisibility(View.INVISIBLE);
+            dealerHandScoreText.setText((dealerHand));
+
         } else {
             handText.setText((hand));
         }
@@ -85,6 +88,7 @@ public class GameActivity extends AppCompatActivity {
 
         handText.setText((hand));
         resultText.setText((result));
+        dealerHandScoreText.setText((dealerHand));
         hitButton.setVisibility(View.INVISIBLE);
         restartButton.setVisibility(View.VISIBLE);
         holdButton.setVisibility(View.INVISIBLE);

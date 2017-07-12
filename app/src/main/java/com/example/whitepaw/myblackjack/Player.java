@@ -41,9 +41,9 @@ public class Player {
     public  String getCardsOfPlayerHand() {
         String cardNames = "";
         for (Card cardName : this.myHand ) {
-            cardNames += cardName.toString();
+            cardNames += cardName.toString() + "\n";
         }
-        return cardNames;
+        return cardNames.substring(0, cardNames.length() - 2);
     }
 
 

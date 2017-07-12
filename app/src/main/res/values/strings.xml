@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">MyBlackJack</string>
     <string name="app_bust">Your Bust FOOL!</string>
+    <string name="name_game_text">Name</string>
+    <string name="hit_button">Hit</string>
+    <string name="hold_button">Hold</string>
+    <string name="hand_text">Show Cards Here</string>
+    <string name="result_text">Results here</string>
+    <string name="hand_value">Hand score here</string>
+    <string name="restart">New game</string>
+    <string name="dealer_hand_value">Dealer Hand here</string>
 </resources>
