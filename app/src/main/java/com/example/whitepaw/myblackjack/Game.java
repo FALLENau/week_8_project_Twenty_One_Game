@@ -97,6 +97,19 @@ public class Game {
         // while (wants to hit){ give card which will check for bust }
     }
 
+    public String blackJack() {
+
+        Player blackJackPlayer = null;
+        int blackJack = 21;
+
+        for (Player player : this.players) {
+            if (countScore(player) == blackJack) {
+                return player.getName() + " BlackJack! you win wins";
+            }
+        }
+        return null;
+    }
+
     public String compareValueOfHands() {
 
         Player maxPlayer = null;
