@@ -72,9 +72,40 @@ public class GameActivity extends AppCompatActivity {
             createData();
         } else {
             createData();
-            resultText.setText(playerBlackjack);
             endGame();
+            resultText.setText(playerBlackjack);
         }
+    }
+
+    public void onClickHitButton(View button) {
+        player1.addCardToPlayerHand(newGame.getCard());
+        String hand = player1.getCardsOfPlayerHand();
+
+        int handScore = newGame.countScore(player1);
+        String handValue = Integer.toString(handScore);
+
+        if (newGame.checkForBust(player1)) {
+            createData();
+            resultText.setText(getString(R.string.app_bust));
+            endGame();
+
+        } else {
+            handText.setText((hand));
+        }
+        handScoreText.setText((handValue));
+    }
+
+
+    public void onClickHoldButton(View button) {
+        newGame.playTurn(dealer);
+        String result = newGame.compareValueOfHands();
+        resultText.setText((result));
+        createData();
+        endGame();
+    }
+
+    public void onReset(View button) {
+        finish();
     }
 
     private void createData() {
@@ -100,35 +131,5 @@ public class GameActivity extends AppCompatActivity {
         restartButton.setVisibility(View.VISIBLE);
         hitButton.setVisibility(View.INVISIBLE);
         holdButton.setVisibility(View.INVISIBLE);
-    }
-
-
-    public void onClickHitButton(View button) {
-        player1.addCardToPlayerHand(newGame.getCard());
-        String hand = player1.getCardsOfPlayerHand();
-
-        int handScore = newGame.countScore(player1);
-        String handValue = Integer.toString(handScore);
-
-        if (newGame.checkForBust(player1)) {
-            resultText.setText(getString(R.string.app_bust));
-            endGame();
-
-        } else {
-            handText.setText((hand));
-        }
-        handScoreText.setText((handValue));
-    }
-
-    public void onClickHoldButton(View button) {
-        newGame.playTurn(dealer);
-        String result = newGame.compareValueOfHands();
-        resultText.setText((result));
-        createData();
-        endGame();
-    }
-
-    public void onReset(View button) {
-        finish();
     }
 }

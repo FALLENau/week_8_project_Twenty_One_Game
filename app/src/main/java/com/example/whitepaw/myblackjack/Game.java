@@ -72,7 +72,7 @@ public class Game {
 //       add check for dealer here
         if (player.getName().equals("Dealer")) {
             this.countScore(player);{
-            if (this.countScore(player) >= 15) return false;}
+            if (this.countScore(player) >= 16) return false;}
         } else { return true;}
 //       does player bust (use break; in the while loop)
         return result;
