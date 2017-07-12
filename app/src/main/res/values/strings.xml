@@ -8,5 +8,5 @@
     <string name="result_text">Results here</string>
     <string name="hand_value">Hand score here</string>
     <string name="restart">New game</string>
-    <string name="dealer_hand_value">Dealer Hand here</string>
+    <string name="dealer_hand_value">Dealer Hand Value here</string>
 </resources>

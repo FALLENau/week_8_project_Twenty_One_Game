@@ -49,13 +49,6 @@ public class Game {
         return sum;
     }//note: Card myHand is inherited by player
 
-//    public String printPlayersCards(ArrayList<Player> gamePlayers) {
-//        for(int i = 0; i < gamePlayers.size(); i++) {
-//            System.out.print(gamePlayers.get(i));
-//        }
-//        return what??;
-//    }//note:why do i need this??
-
     public void playGame() {
         setupGame();
 //        for (Player player : players) {
@@ -72,7 +65,7 @@ public class Game {
                 if (!askIfHit(player)) break;
             }
         }
-    }//note: check if functional-------------------------------------------
+    }
 
     public boolean askIfHit(Player player) {
         boolean result = true;
@@ -80,21 +73,17 @@ public class Game {
         if (player.getName().equals("Dealer")) {
             this.countScore(player);{
             if (this.countScore(player) >= 15) return false;}
-        } else { return true/*playerInput*/;}
+        } else { return true;}
 //       does player bust (use break; in the while loop)
         return result;
-    }//note: refactor to be "askIfDealerWantsToHit"
+    }
 
     public boolean checkForBust(Player player) {
         boolean result = false;
         if (this.countScore(player) > 21)
             result = true;
         return result;
-    }//note: check if functional-------------------------------------------
-
-//    public int FaceCardRule(Player player) {
-//
-//    }//note: this is to make my face cards equal to the correct amount in blackjack.
+    }
 
     public void setupGame() {
         for (Player player : players) {
@@ -109,16 +98,26 @@ public class Game {
     }
 
     public String compareValueOfHands() {
-        Player maxPlayer = this.players.get(0);
+
+        Player maxPlayer = null;
+
+        for(Player player: this.players)
+        {
+            if(!checkForBust(player)) {
+                maxPlayer = player;
+                break;
+            }
+        }
+
+        if(maxPlayer == null) {
+            return "No one wins";
+        }
 
         for(Player player : this.players) {
-            if(countScore(player) > countScore(maxPlayer)/*&&player is bust*/) {
+            if(countScore(player) >= countScore(maxPlayer) && !checkForBust(player)) {
                 maxPlayer = player;
             }
         }
         return maxPlayer.getName();
     }
-
-
-
 }

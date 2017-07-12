@@ -56,29 +56,46 @@ public class GameTest {
         assertNotNull(newGame.compareValueOfHands());
     }
 
-    @Test
-    public void checkForBust() {
-        newGame.playGame();
+//    @Test
+//    public void checkForBust() {
+//        newGame.playGame();
 //        newGame.giveCardToPlayer(dealer, newGame.getCard());
 //        newGame.giveCardToPlayer(player1, newGame.getCard());
 //        newGame.giveCardToPlayer(player1, newGame.getCard());
 //        newGame.giveCardToPlayer(player1, newGame.getCard());
 //        newGame.giveCardToPlayer(player1, newGame.getCard());
-        System.out.println(newGame.countPlayerHand(player1));
-        System.out.println(newGame.countScore(player1));
-        newGame.askIfHit(dealer);
-        assertEquals(false, newGame.checkForBust(dealer));
-        System.out.println(newGame.countPlayerHand(dealer));
-        System.out.println(newGame.countScore(dealer));
-        System.out.println(newGame.compareValueOfHands());
-    }//note: works just fine
+//        System.out.println(newGame.countPlayerHand(player1));
+//        System.out.println(newGame.countScore(player1));
+//        newGame.askIfHit(dealer);
+//        assertEquals(false, newGame.checkForBust(dealer));
+//        System.out.println(newGame.countPlayerHand(dealer));
+//        System.out.println(newGame.countScore(dealer));
+//        System.out.println(newGame.compareValueOfHands());
+//    }//note: works just fine
+
+//    @Test
+//    public void whatCardsDoesPlayer1Have() {
+//        newGame.playGame();
+//        System.out.println(newGame.countPlayerHand(player1));
+//        System.out.println(newGame.countScore(player1));
+//        System.out.println(player1.countHand());
+//    }
 
     @Test
-    public void whatCardsDoesPlayer1Have() {
-        newGame.playGame();
-        System.out.println(newGame.countPlayerHand(player1));
-        System.out.println(newGame.countScore(player1));
+    public void whyDoesDealWin() {
+        newGame.giveCardToPlayer(player1, new Card(Suit.Clubs, 6));
+        newGame.giveCardToPlayer(player1, new Card(Suit.Clubs, 10));
+        newGame.giveCardToPlayer(dealer, new Card(Suit.Clubs, 8));
+        newGame.giveCardToPlayer(dealer, new Card(Suit.Clubs, 3));
+
+        System.out.println(player1.getCardsOfPlayerHand());
         System.out.println(player1.countHand());
+        System.out.println(newGame.countScore(player1));
+
+        System.out.println(dealer.getCardsOfPlayerHand());
+        System.out.println(dealer.countHand());
+        System.out.println(newGame.countScore(dealer));
+        assertEquals("dealer", newGame.compareValueOfHands());
     }
 //    @Test
 //    public void playTwoRounds() {

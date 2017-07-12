@@ -16,14 +16,14 @@ public class GameActivity extends AppCompatActivity {
     TextView resultText;
     TextView handText;
     TextView handScoreText;
+    TextView dealerHandText;
     TextView dealerHandScoreText;
     Button restartButton;
     Deck deck;
     Player player1;
+    Player dealer;
     ArrayList<Player> appGame;
     Game newGame;
-    Player dealer;
-    String dealerHand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,24 +41,37 @@ public class GameActivity extends AppCompatActivity {
         appGame = new ArrayList<Player>();
         appGame.add(player1);
         appGame.add(dealer);
-
+//        String dealerHand;
         newGame = new Game(appGame, deck);
         newGame.playGame();
 
         String hand = player1.getCardsOfPlayerHand();
-        dealerHand = dealer.getCardsOfPlayerHand();
+        int handScore = newGame.countScore(player1);
+        String handValue = Integer.toString(handScore);
+
+        String dealerHand = dealer.getCardsOfPlayerHand();
+        int dealerHandScore = newGame.countScore(dealer);
+        String dealerHandValue = Integer.toString(dealerHandScore);
+
 
         hitButton = (Button) findViewById(R.id.hit_button);
         holdButton = (Button) findViewById(R.id.hold_button);
-        resultText = (TextView) findViewById(R.id.result_text);
         restartButton = (Button) findViewById(R.id.restart);
+        resultText = (TextView) findViewById(R.id.result_text);
+
+        TextView nameText = (TextView) findViewById(R.id.name_game_text);
         handText = (TextView) findViewById(R.id.hand_text);
         handScoreText = (TextView) findViewById(R.id.hand_value);
+
+        dealerHandText = (TextView) findViewById(R.id.dealer_hand_text);
         dealerHandScoreText = (TextView) findViewById(R.id.dealer_hand_value);
-        TextView nameText = (TextView) findViewById(R.id.name_game_text);
 
         nameText.setText(name);
         handText.setText((hand));
+        handScoreText.setText((handValue));
+
+        dealerHandText.setText((dealerHand));
+        dealerHandScoreText.setText((dealerHandValue));
     }
 
     public void onClickHitButton(View button) {
@@ -73,7 +86,6 @@ public class GameActivity extends AppCompatActivity {
             restartButton.setVisibility(View.VISIBLE);
             hitButton.setVisibility(View.INVISIBLE);
             holdButton.setVisibility(View.INVISIBLE);
-            dealerHandScoreText.setText((dealerHand));
 
         } else {
             handText.setText((hand));
@@ -84,11 +96,14 @@ public class GameActivity extends AppCompatActivity {
     public void onClickHoldButton(View button) {
         newGame.playTurn(dealer);
         String result = newGame.compareValueOfHands();
-        String hand = player1.getCardsOfPlayerHand();
 
-        handText.setText((hand));
+        String dealerHand = dealer.getCardsOfPlayerHand();
+        int dealerHandScore = newGame.countScore(dealer);
+        String dealerHandValue = Integer.toString(dealerHandScore);
+
         resultText.setText((result));
-        dealerHandScoreText.setText((dealerHand));
+        dealerHandText.setText((dealerHand));
+        dealerHandScoreText.setText((dealerHandValue));
         hitButton.setVisibility(View.INVISIBLE);
         restartButton.setVisibility(View.VISIBLE);
         holdButton.setVisibility(View.INVISIBLE);
