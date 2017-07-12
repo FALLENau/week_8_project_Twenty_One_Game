@@ -22,7 +22,13 @@ public class StartPageActivity extends AppCompatActivity {
 
     public void onStartButtonClicked(View Button) {
         Intent intent = new Intent(this, GameActivity.class);
-        intent.putExtra("name", nameText.getText().toString());
+
+        String name = nameText.getText().toString();
+
+        if(name != null || !name.isEmpty()) {
+            intent.putExtra("name", name);
+        }
+
         startActivity(intent);
     }
 }

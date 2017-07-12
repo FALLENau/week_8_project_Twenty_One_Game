@@ -32,7 +32,7 @@ public class GameActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-        String name = extras.getString("name", " Player ");
+        String name = extras.getString("name", "Player");
         Log.e("Ahhh", "value of name is: " + name);
 
         deck = new Deck();
@@ -68,8 +68,8 @@ public class GameActivity extends AppCompatActivity {
 //            String dealerHand = dealer.getCardsOfPlayerHand();
 //            int dealerHandScore = newGame.countScore(dealer);
 //            String dealerHandValue = Integer.toString(dealerHandScore);
-
-            nameText.setText(name);
+//
+//            nameText.setText(name);
 //            handText.setText((hand));
 //            handScoreText.setText((handValue));
 //
@@ -83,7 +83,9 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void createData() {
+
         TextView nameText = (TextView) findViewById(R.id.name_game_text);
+        nameText.setText(player1.getName());
         String hand = player1.getCardsOfPlayerHand();
         int handScore = newGame.countScore(player1);
         String handValue = Integer.toString(handScore);
@@ -114,7 +116,7 @@ public class GameActivity extends AppCompatActivity {
         String handValue = Integer.toString(handScore);
 
         if (newGame.checkForBust(player1)) {
-            handText.setText(getString(R.string.app_bust));
+            resultText.setText(getString(R.string.app_bust));
             endGame();
 
         } else {
@@ -126,14 +128,15 @@ public class GameActivity extends AppCompatActivity {
     public void onClickHoldButton(View button) {
         newGame.playTurn(dealer);
         String result = newGame.compareValueOfHands();
+        resultText.setText((result));
         createData();
 //        String dealerHand = dealer.getCardsOfPlayerHand();
 //        int dealerHandScore = newGame.countScore(dealer);
 //        String dealerHandValue = Integer.toString(dealerHandScore);
 //
-//        resultText.setText((result));
 //        dealerHandText.setText((dealerHand));
 //        dealerHandScoreText.setText((dealerHandValue));
+
         endGame();
 //        hitButton.setVisibility(View.INVISIBLE);
 //        restartButton.setVisibility(View.VISIBLE);
