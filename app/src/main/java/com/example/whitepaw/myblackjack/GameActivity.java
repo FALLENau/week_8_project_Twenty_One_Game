@@ -45,7 +45,6 @@ public class GameActivity extends AppCompatActivity {
         appGame.add(dealer);
         newGame = new Game(appGame, deck);
         newGame.playGame();
-        String playerBlackjack = newGame.blackJack();
 
         hitButton = (Button) findViewById(R.id.hit_button);
         holdButton = (Button) findViewById(R.id.hold_button);
@@ -58,6 +57,7 @@ public class GameActivity extends AppCompatActivity {
         dealerHandText = (TextView) findViewById(R.id.dealer_hand_text);
         dealerHandScoreText = (TextView) findViewById(R.id.dealer_hand_value);
 
+        String playerBlackjack = newGame.blackJack();
 
         if(playerBlackjack == null) {
             createData();
@@ -118,11 +118,25 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void endGame() {
-
-        if(resultText.getText().equals("Dealer")) {
-            MediaPlayer fail = MediaPlayer.create(this, R.raw.sound);
-
+        MediaPlayer marioSound = MediaPlayer.create(this, R.raw.mario);
+        MediaPlayer luigiSound = MediaPlayer.create(this, R.raw.luigi);
+        MediaPlayer playerWin = MediaPlayer.create(this, R.raw.playerwin);
+        MediaPlayer blackjack = MediaPlayer.create(this, R.raw.blackjack);
+        MediaPlayer fail = MediaPlayer.create(this, R.raw.playerfail);
+        if(resultText.getText().equals("Dealer") || resultText.getText().equals("sorry, you Bust")) {
             fail.start();
+        }
+        else if(resultText.getText().toString().contains("Blackjack")) {
+            blackjack.start();
+        }
+        else if (resultText.getText().equals("Mario")){
+            marioSound.start();
+        }
+        else if (resultText.getText().equals("Luigi")){
+            luigiSound.start();
+        }
+        else{
+            playerWin.start();
         }
 
         restartButton.setVisibility(View.VISIBLE);

@@ -76,13 +76,6 @@ public class Game {
         return result;
     }
 
-    public boolean checkForBust(Player player) {
-        boolean result = false;
-        if (this.countScore(player) > 21)
-            result = true;
-        return result;
-    }
-
     public void setupGame() {
         for (Player player : players) {
             Card card1 = getCard();
@@ -98,7 +91,7 @@ public class Game {
 
         for (Player player : this.players) {
             if (countScore(player) == blackJack) {
-                return player.getName() + "\n has BlackJack! you wins";
+                return player.getName() + " has BlackJack! you wins";
             }
         }
         return null;
@@ -127,4 +120,17 @@ public class Game {
         }
         return maxPlayer.getName();
     }
+
+    public boolean checkForBust(Player player) {
+        boolean result = false;
+        if (this.countScore(player) > 21)
+            result = true;
+        return result;
+    }
+
+//    public void winResults(String string, Boolean b) {
+//        String result;
+//        String sting = result;
+//        if (this, result = )
+//    }
 }
