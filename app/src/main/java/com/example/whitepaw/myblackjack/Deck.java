@@ -34,8 +34,6 @@ public class Deck {
                 }
             }
         }
-
-        //note: shuffleDeck
         if (shuffleDeck == true) {
             this.shuffleDeck();
         }
@@ -44,25 +42,10 @@ public class Deck {
 
     public void shuffleDeck() {
         Collections.shuffle(myDeck, new Random());
-//        Random random = new Random();
-//        Card temp;
-//        int value;
-//        for (int i = 0; i < 500; i++) {
-//            value = random.nextInt(this.numberOfCards);
-////            temp = this.myDeck(i);
-////            this.myDeck(i) = this.myDeck(value);
-////            this.myDeck(value) = temp;
-//        }
     }
 
     public Card dealNextCard() {
         Card topCard = myDeck.remove(0);
-//        Card topCard = this.myDeck.get(0);
-//        for (int card = 1; card < this.numberOfCards; card++) {
-////            this.myDeck.get(card-1) = this.myDeck(card);
-//        }
-//        this.myDeck(this.numberOfCards-1) = null;
-//        this.numberOfCards--;
         return topCard;
     }
 

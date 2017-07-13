@@ -69,12 +69,10 @@ public class Game {
 
     public boolean askIfHit(Player player) {
         boolean result = true;
-//       add check for dealer here
         if (player.getName().equals("Dealer")) {
             this.countScore(player);{
             if (this.countScore(player) >= 16) return false;}
         } else { return true;}
-//       does player bust (use break; in the while loop)
         return result;
     }
 
@@ -92,14 +90,10 @@ public class Game {
             Card card2  = getCard();
             giveCardToPlayer(player, card2);
         }
-        //deal 2 cards for each player and dealer
-        //check each player if they want to hit or not, and check if bust(in hti method)
-        // while (wants to hit){ give card which will check for bust }
     }
 
     public String blackJack() {
 
-//        Player blackJackPlayer = null;
         int blackJack = 21;
 
         for (Player player : this.players) {

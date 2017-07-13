@@ -35,16 +35,7 @@ public class GameActivity extends AppCompatActivity {
         String name = extras.getString("name", "Player");
         Log.e("Ahhh", "value of name is: " + name);
 
-//        final MediaPlayer fail = MediaPlayer.create(this, R.raw.SuperMarioDeathSound);
-//
-//        superMarioFailPlay = (Button) this.findViewById(R.id.fail_sound);
-//
-//        superMarioFailPlay.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                fail.start();
-//            }
-//        });
+
 
         deck = new Deck();
         dealer = new Dealer("Dealer");
@@ -72,8 +63,8 @@ public class GameActivity extends AppCompatActivity {
             createData();
         } else {
             createData();
-            endGame();
             resultText.setText(playerBlackjack);
+            endGame();
         }
     }
 
@@ -85,7 +76,6 @@ public class GameActivity extends AppCompatActivity {
         String handValue = Integer.toString(handScore);
 
         if (newGame.checkForBust(player1)) {
-            createData();
             resultText.setText(getString(R.string.app_bust));
             endGame();
 
@@ -128,6 +118,13 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void endGame() {
+
+        if(resultText.getText().equals("Dealer")) {
+            MediaPlayer fail = MediaPlayer.create(this, R.raw.sound);
+
+            fail.start();
+        }
+
         restartButton.setVisibility(View.VISIBLE);
         hitButton.setVisibility(View.INVISIBLE);
         holdButton.setVisibility(View.INVISIBLE);
