@@ -126,7 +126,7 @@ public class GameActivity extends AppCompatActivity {
         if(resultText.getText().equals("Dealer") || resultText.getText().equals("sorry, you Bust")) {
             fail.start();
         }
-        else if(resultText.getText().toString().contains("Blackjack")) {
+        else if(resultText.getText().toString().contains("BlackJack")) {
             blackjack.start();
         }
         else if (resultText.getText().equals("Mario")){

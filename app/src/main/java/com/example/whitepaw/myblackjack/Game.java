@@ -39,7 +39,7 @@ public class Game {
         for (i = 0; i < player.getMyHand().size(); i++) {
             int num = player.getMyHand().get(i).getNumber();
 
-            if (num > 10) {num = 10;}//note: this adjust face for blackjack to 10;
+            if (num > 10) {num = 10;}//note: this adjust face for playerwin to 10;
 
             if (sum < 11 && num == 1) {
                 num = 11;
@@ -91,7 +91,7 @@ public class Game {
 
         for (Player player : this.players) {
             if (countScore(player) == blackJack) {
-                return player.getName() + " has BlackJack! you wins";
+                return player.getName() + " gets BlackJack!";
             }
         }
         return null;
@@ -127,10 +127,4 @@ public class Game {
             result = true;
         return result;
     }
-
-//    public void winResults(String string, Boolean b) {
-//        String result;
-//        String sting = result;
-//        if (this, result = )
-//    }
 }
